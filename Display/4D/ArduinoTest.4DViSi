@@ -1,0 +1,97 @@
+﻿Version     0.0
+Platform    Gen4-uLCD-43D-L
+PlatRes     272x480
+Depends
+end
+Options
+    Visualizer
+    Speed                        9600
+    Checksum                     No
+    ResponseSize                 2
+    Multidrop                    No
+    Destination                  1
+    MainForm                     0
+    SndBuf                       0
+    ButtonDisable                No
+    SignedDigits                 No
+end
+Form
+    Name                         Form1
+    Alias                        Form1
+    Bgtype                       Color
+    Color                        BLACK
+    Image                        (None)
+    Source.Height                0
+    Source.Left                  0
+    Source.Top                   0
+    Source.Width                 0
+    OnActivate                   ''
+    OnCreate                     ''
+    OnRepeat                     ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+AngularMeter
+    Name                         Angularmeter1
+    Alias                        Angularmeter1
+    Angle                        40
+    AngleOffset                  280
+    Caption                      Angularmeter1
+    CaptionXOffset               0
+    CaptionYOffset               0
+    CenterDotColor               clWhite
+    CenterDotWidth               2
+    Color                        BLACK
+    ColorZone1                   clGreen
+    ColorZone2                   clBlue
+    ColorZone3                   clRed
+    Decimals                     0
+    Font.Color                   clWhite
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    8
+    Font.Style                   []
+    Height                       229
+    Labels                       10
+    LabelsFont.Color             clWhite
+    LabelsFont.Effects           []
+    LabelsFont.Name              Tahoma
+    LabelsFont.Size              8
+    LabelsFont.Style             []
+    LabelsOffset                 30
+    Left                         216
+    Maxvalue                     100
+    Minvalue                     0
+    NeedleBasewidth              8
+    NeedleColor                  clRed
+    NeedleLength                 -1
+    Percent1                     60
+    Percent2                     25
+    Radius                       -1
+    Spacing                      45
+    Ticks                        100
+    TicksColor                   clWhite
+    TicksEnlarge                 10
+    TicksMax                     14
+    TicksMin                     5
+    Top                          43
+    Width                        264
+    OnChanged                    ''
+end
+Image
+    Name                         Image1
+    Alias                        Image1
+    Height                       249
+    Image                        mcstrokezoom.png
+    Left                         0
+    Source.Height                1009
+    Source.Left                  0
+    Source.Top                   0
+    Source.Width                 2119
+    Top                          23
+    Width                        480
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end

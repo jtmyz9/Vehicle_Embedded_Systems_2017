@@ -1,0 +1,241 @@
+#platform "Gen4-uLCD-43D"
+
+#inherit "4DGL_16bitColours.fnc"
+#inherit "VisualConst.inc"
+#inherit "YepConst.inc"
+#inherit "ledDigitsDisplay.inc"
+#inherit "AVRSerial.inc"
+
+func main()
+  var hstrings ; // Handle to access uSD strings, uncomment if required
+  var hFont1 ;   // Handle to access uSD fonts, uncomment if required and change n to font number
+//  Uncomment the following if uSD images, fonts or strings used.
+    putstr("Mounting...\n");
+    if (!(file_Mount()))
+        while(!(file_Mount()))
+            putstr("Drive not mounted...");
+            pause(200);
+            gfx_Cls();
+            pause(200);
+        wend
+    endif
+//    gfx_TransparentColour(0x0020);    // uncomment if transparency required
+//    gfx_Transparency(ON);             // uncomment if transparency required
+//  hFontn := file_LoadImageControl("Yep.dan", "Yep.gcn", 1); // Open handle to access uSD fonts, uncomment if required and change n to font number dropping a and c if > 9
+  hstrings := file_Open("Yep.txf", 'r') ; // Open handle to access uSD strings, uncomment if required
+    hndl := file_LoadImageControl("Yep.dat", "Yep.gci", 1);
+    gfx_Set(SCREEN_MODE,LANDSCAPE) ;
+    gfx_Cls();
+
+
+    //BEGIN USER CODE
+     img_Show(hndl,iImage1); //show splash screen
+     AVRSerialInit(); //initalize serial
+     serial_listener(); //call master listener function
+     repeat
+        while(com_Count() > 0)
+            command:=serin();
+            switch(command)
+                case 0x08:
+                    while(com_Count() < 1)\
+                    wend //wait for next byte
+                    command := serin();
+                    switch(command)
+                        case 0x01: page1();
+                                    break;
+                        case 0x02: page2();
+                                    break;
+                        case 0x03: page3();
+                                    break;
+                        default: break;
+                    endswitch
+                    break;
+                default: break;
+            endswitch
+        wend
+    forever
+
+
+    // RPM 1.0 generated 12/17/2016 8:18:25 PM
+    img_Show(hndl, iRPM);  // show all digits at 0, only do this once
+    ledDigitsDisplay(13500, iRPM+1, 80, 5, 1, 65, 0) ;
+
+
+    var command, datums, rpms;
+
+    AVRSerialInit();
+
+
+
+    repeat
+               while(com_Count() > 0)
+                command:=serin();
+                switch(command)
+                case 0x00:
+                    while(com_Count() < 2)
+                    wend//wait for rest of data to be in the buffer
+                    rpms:=(serin());
+                    rpms+=(serin()*255);
+                    ledDigitsDisplay(rpms, iRPM+1, 80, 5, 1, 65, 0) ;
+                    break;
+                endswitch
+                wend
+
+    forever
+endfunc
+
+func serial_listener() //master serial rx watcher listener earhole
+        var command,datum;
+        repeat
+             command:=serin(); //listen for command byte
+             switch(command)
+                case -1: break;
+                case 0x00: //rpm update
+                    while(com_Count() < 2)
+                    wend //wait for 2 data bytes
+                    datum:=(serin());
+                    datum+=(serin()*255);
+                    ledDigitsDisplay(datum, irpm+1, 108, 5, 1, 74, 0);
+                    break;
+                case 0x08: //page switch TODO: ACK?
+                    while(com_Count() < 1)
+                    wend //wait for 1 byte
+                    datum:=serin();
+                    switch(datum)
+                        case 0x01:
+                            page1();
+                            break;
+                        case 0x02:
+                            page2();
+                            break;
+                        case 0x03:
+                            page3();
+                            break;
+                    endswitch
+                    break;
+                case 0x0C: //update test leddigits
+                    while(com_Count() < 1)
+                    wend //wait for 1 byte
+                    datum:=serin();
+                    ledDigitsDisplay(datum, itestdigits+1, 64, 4, 2, 34, 0) ;
+                default: break;
+             endswitch
+        forever
+endfunc
+
+
+func page1()
+
+    var hstrings ; // Handle to access uSD strings, uncomment if required
+    var hFont1 ;
+
+    gfx_Cls();
+
+    // Statictext1 1.0 generated 2/8/2017 6:49:05 PM
+    img_Show(hndl,iStatictext1) ;
+
+    // Leddigits1 1.0 generated 2/8/2017 6:49:08 PM
+    img_Show(hndl, iLeddigits1);  // show all digits at 0, only do this once
+    ledDigitsDisplay(10, iLeddigits1+1, 4, 3, 1, 31, 0) ;
+
+    // RPM 1.0 generated 2/8/2017 6:49:10 PM
+    img_Show(hndl, iRPM);  // show all digits at 0, only do this once
+    ledDigitsDisplay(23, iRPM+1, 108, 5, 1, 74, 0) ;
+
+    // Leddigits10 1.0 generated 2/8/2017 6:49:11 PM
+    img_Show(hndl, iLeddigits10);  // show all digits at 0, only do this once
+    ledDigitsDisplay(11, iLeddigits10+1, 32, 2, 1, 44, 0) ;
+
+    // Label1 1.0 generated 2/8/2017 6:49:13 PM
+    txt_FGcolour(WHITE) ;
+    txt_BGcolour(BLACK) ;
+    gfx_MoveTo(64, 136) ;
+    putstr("OIL") ;
+
+    // Label2 1.0 generated 2/8/2017 6:49:15 PM
+    txt_FGcolour(WHITE) ;
+    txt_BGcolour(BLACK) ;
+    gfx_MoveTo(186, 143) ;
+    putstr("FUEL") ;
+
+    // Leddigits9 1.0 generated 2/8/2017 6:49:17 PM
+    img_Show(hndl, iLeddigits9);  // show all digits at 0, only do this once
+    ledDigitsDisplay(12, iLeddigits9+1, 152, 2, 1, 44, 0) ;
+
+    // Leddigits8 1.0 generated 2/8/2017 6:49:18 PM
+    img_Show(hndl, iLeddigits8);  // show all digits at 0, only do this once
+    ledDigitsDisplay(13, iLeddigits8+1, 76, 3, 2, 40, 0) ;
+
+    // Label3 1.0 generated 2/8/2017 6:49:20 PM
+    txt_FGcolour(WHITE) ;
+    txt_BGcolour(BLACK) ;
+    gfx_MoveTo(118, 210) ;
+    putstr("LAMBDA") ;
+
+
+
+endfunc
+
+func page2()
+      gfx_Cls();
+
+    // Statictext2 1.0 generated 2/9/2017 1:40:39 PM
+    img_Show(hndl,iStatictext2) ;
+
+    // Leddigits3 1.0 generated 2/9/2017 1:40:42 PM
+    img_Show(hndl, iLeddigits3);  // show all digits at 0, only do this once
+    ledDigitsDisplay(10, iLeddigits3+1, 12, 3, 1, 32, 0) ;
+
+    // Leddigits2 1.0 generated 2/9/2017 1:40:43 PM
+    img_Show(hndl, iLeddigits2);  // show all digits at 0, only do this once
+    ledDigitsDisplay(11, iLeddigits2+1, 120, 5, 1, 72, 0) ;
+
+    // Leddigits7 1.0 generated 2/9/2017 1:40:45 PM
+    img_Show(hndl, iLeddigits7);  // show all digits at 0, only do this once
+    ledDigitsDisplay(12, iLeddigits7+1, 52, 2, 1, 28, 0) ;
+
+    // Leddigits6 1.0 generated 2/9/2017 1:40:47 PM
+    img_Show(hndl, iLeddigits6);  // show all digits at 0, only do this once
+    ledDigitsDisplay(13, iLeddigits6+1, 148, 2, 1, 31, 0) ;
+
+    // Leddigits5 1.0 generated 2/9/2017 1:40:48 PM
+    img_Show(hndl, iLeddigits5);  // show all digits at 0, only do this once
+    ledDigitsDisplay(14, iLeddigits5+1, 56, 2, 1, 26, 0) ;
+
+    // Leddigits4 1.0 generated 2/9/2017 1:40:50 PM
+    img_Show(hndl, iLeddigits4);  // show all digits at 0, only do this once
+    ledDigitsDisplay(15, iLeddigits4+1, 148, 2, 1, 31, 0) ;
+
+    // Label5 1.0 generated 2/9/2017 1:40:53 PM
+    txt_FGcolour(WHITE) ;
+    txt_BGcolour(BLACK) ;
+    gfx_MoveTo(368, 160) ;
+    putstr("Page 2") ;
+
+endfunc
+
+func page3()
+
+       gfx_Cls();
+
+
+    // rpm 1.0 generated 2/9/2017 3:26:13 PM
+    img_Show(hndl, irpm);  // show all digits at 0, only do this once
+    ledDigitsDisplay(0, irpm+1, 108, 5, 1, 74, 0) ;
+
+
+    // testdigits 1.0 generated 2/9/2017 3:26:21 PM
+    img_Show(hndl, itestdigits);  // show all digits at 0, only do this once
+    ledDigitsDisplay(0, itestdigits+1, 64, 4, 2, 34, 0) ;
+
+
+
+    // Label6 1.0 generated 2/9/2017 1:41:09 PM
+    txt_FGcolour(WHITE) ;
+    txt_BGcolour(BLACK) ;
+    gfx_MoveTo(336, 248) ;
+    putstr("Page 3") ;
+
+
+endfunc
+

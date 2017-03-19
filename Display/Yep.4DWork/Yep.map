@@ -1,0 +1,3 @@
+linked : 3     main 0045
+skipped: 2     AVRSerialInit ----
+linked : 1     ledDigitsDisplay 0141

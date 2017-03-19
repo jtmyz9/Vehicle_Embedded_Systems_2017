@@ -1,0 +1,64 @@
+#platform "Gen4-uLCD-43D"
+
+// Program Skeleton 1.2 generated 12/1/2016 11:00:42 PM
+
+#inherit "4DGL_16bitColours.fnc"
+
+#inherit "VisualConst.inc"
+
+#inherit "ArduinoTestConst.inc"
+
+func main()
+//  var hstrings ; // Handle to access uSD strings, uncomment if required
+//  var hFontx ;   // Handle to access uSD fonts, uncomment if required and change n to font number
+//  Uncomment the following if uSD images, fonts or strings used.
+
+  //  putstr("Mounting...\n");
+    if (!(file_Mount()))
+        while(!(file_Mount()))
+            putstr("Drive not mounted...");
+            pause(200);
+            gfx_Cls();
+            pause(200);
+        wend
+    endif
+//    gfx_TransparentColour(0x0020);    // uncomment if transparency required
+//    gfx_Transparency(ON);             // uncomment if transparency required
+
+
+
+//  hFontn := file_LoadImageControl("ARDUIN~1.dan", "ARDUIN~1.gcn", 1); // Open handle to access uSD fonts, uncomment if required and change n to font number dropping a and c if > 9
+//  hstrings := file_Open("ARDUIN~1.txf", 'r') ; // Open handle to access uSD strings, uncomment if required
+    hndl := file_LoadImageControl("ARDUIN~1.dat", "ARDUIN~1.gci", 1);
+
+
+    gfx_Set(SCREEN_MODE,LANDSCAPE) ;
+
+    // img_Show(hndl,iImage2) ;
+
+      // Image1 1.0 generated 12/2/2016 2:47:09 PM
+  //    img_Show(hndl,iImage1) ;
+
+
+    // Image1 1.0 generated 12/3/2016 2:58:59 PM
+    img_Show(hndl,iImage1) ;
+
+
+    // Image1 1.0 generated 12/3/2016 2:59:37 PM
+    img_Show(hndl,iImage1) ;
+
+
+
+    // Angularmeter1 1.0 generated 12/2/2016 2:23:53 PM
+  //  img_SetWord(hndl, iAngularmeter1, IMAGE_INDEX, 5) ; // where frame is 0 to 100 (for a displayed 0 to 100)
+ //   img_Show(hndl,iAngularmeter1) ;
+      repeat
+
+      forever
+
+
+    // Image2 1.0 generated 12/1/2016 11:12:07 PM
+
+
+endfunc
+

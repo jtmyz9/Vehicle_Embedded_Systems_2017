@@ -1,0 +1,553 @@
+﻿Version     0.0
+Platform    Gen4-uLCD-43D-L
+PlatRes     272x480
+Depends
+    AVRSerial.inc
+end
+Options
+    Visualizer
+    Speed                        9600
+    Checksum                     No
+    ResponseSize                 2
+    Multidrop                    No
+    Destination                  1
+    MainForm                     0
+    SndBuf                       0
+    ButtonDisable                No
+    SignedDigits                 No
+end
+Form
+    Name                         'Page 1'
+    Alias                        Page1
+    Bgtype                       Color
+    Color                        BLACK
+    Image                        (None)
+    Source.Height                0
+    Source.Left                  0
+    Source.Top                   0
+    Source.Width                 0
+    OnActivate                   ''
+    OnCreate                     ''
+    OnRepeat                     ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+LedDigits
+    Name                         RPM
+    Alias                        Leddigits1
+    Color                        BLACK
+    Decimals                     0
+    Digits                       5
+    Height                       134
+    LeadingZero                  Yes
+    Left                         108
+    OutlineColor                 BLACK
+    Palette.High                 AQUA
+    Palette.Low                  BLACK
+    Top                          0
+    Width                        372
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+StaticText
+    Name                         Statictext1
+    Alias                        Statictext1
+    AutoSize                     Yes
+    Caption                      'Water Temp'
+    Color                        BLACK
+    Font.Color                   WHITE
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    9
+    Font.Style                   []
+    Height                       23
+    Left                         12
+    Top                          8
+    Transparent                  Yes
+    Width                        70
+    WordWrap                     Yes
+end
+LedDigits
+    Name                         Leddigits1
+    Alias                        Leddigits1
+    Color                        BLACK
+    Decimals                     0
+    Digits                       3
+    Height                       47
+    LeadingZero                  Yes
+    Left                         4
+    OutlineColor                 BLACK
+    Palette.High                 clLime
+    Palette.Low                  0x005100
+    Top                          28
+    Width                        95
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+Strings
+    Name                         Strings1
+    Alias                        Strings1
+    Alignment                    Left
+    BGcolor                      BLACK
+    Height                       57
+    FGcolor                      WHITE
+    Font.Bold                    No
+    Font.CharSet                 ANSI
+    Font.Italic                  No
+    Font.Name                    Arial
+    Font.Opaque                  Yes
+    Font.Size                    50
+    Font.Strikethrough           No
+    Font.Underline               No
+    Left                         312
+    Strings                      'ALL OK'
+    StringsStyle                 Message
+    Top                          160
+    Width                        167
+    OnChanged                    ''
+end
+LedDigits
+    Name                         Leddigits8
+    Alias                        Leddigits8
+    Color                        BLACK
+    Decimals                     1
+    Digits                       3
+    Height                       52
+    LeadingZero                  Yes
+    Left                         76
+    OutlineColor                 BLACK
+    Palette.High                 clLime
+    Palette.Low                  0x005100
+    Top                          220
+    Width                        120
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+LedDigits
+    Name                         Leddigits9
+    Alias                        Leddigits9
+    Color                        BLACK
+    Decimals                     0
+    Digits                       2
+    Height                       43
+    LeadingZero                  Yes
+    Left                         152
+    OutlineColor                 BLACK
+    Palette.High                 clLime
+    Palette.Low                  0x005100
+    Top                          152
+    Width                        88
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+LedDigits
+    Name                         Leddigits10
+    Alias                        Leddigits10
+    Color                        BLACK
+    Decimals                     0
+    Digits                       2
+    Height                       47
+    LeadingZero                  Yes
+    Left                         32
+    OutlineColor                 BLACK
+    Palette.High                 clLime
+    Palette.Low                  0x005100
+    Top                          148
+    Width                        88
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+Label
+    Name                         Label1
+    Alias                        Label1
+    4DGLFont.Font                FONT1
+    4DGLFont.Bold                No
+    4DGLFont.Italic              No
+    4DGLFont.Inverse             No
+    4DGLFont.Underline           No
+    4DGLFont.MagWidth            1
+    4DGLFont.MagHeight           1
+    4DGLFont.Opaque              Yes
+    BGcolor                      BLACK
+    Caption                      OIL
+    FGcolor                      WHITE
+    Left                         64
+    Top                          136
+end
+Label
+    Name                         Label2
+    Alias                        Label2
+    4DGLFont.Font                FONT1
+    4DGLFont.Bold                No
+    4DGLFont.Italic              No
+    4DGLFont.Inverse             No
+    4DGLFont.Underline           No
+    4DGLFont.MagWidth            1
+    4DGLFont.MagHeight           1
+    4DGLFont.Opaque              Yes
+    BGcolor                      BLACK
+    Caption                      FUEL
+    FGcolor                      WHITE
+    Left                         186
+    Top                          143
+end
+Label
+    Name                         Label3
+    Alias                        Label3
+    4DGLFont.Font                FONT1
+    4DGLFont.Bold                No
+    4DGLFont.Italic              No
+    4DGLFont.Inverse             No
+    4DGLFont.Underline           No
+    4DGLFont.MagWidth            1
+    4DGLFont.MagHeight           1
+    4DGLFont.Opaque              Yes
+    BGcolor                      BLACK
+    Caption                      LAMBDA
+    FGcolor                      WHITE
+    Left                         118
+    Top                          210
+end
+Label
+    Name                         Label4
+    Alias                        Label4
+    4DGLFont.Font                FONT1
+    4DGLFont.Bold                No
+    4DGLFont.Italic              No
+    4DGLFont.Inverse             No
+    4DGLFont.Underline           No
+    4DGLFont.MagWidth            1
+    4DGLFont.MagHeight           1
+    4DGLFont.Opaque              Yes
+    BGcolor                      BLACK
+    Caption                      'Page 1'
+    FGcolor                      WHITE
+    Left                         336
+    Top                          248
+end
+Form
+    Name                         'Page 2'
+    Alias                        Page2
+    Bgtype                       Color
+    Color                        BLACK
+    Image                        (None)
+    Source.Height                0
+    Source.Left                  0
+    Source.Top                   0
+    Source.Width                 0
+    OnActivate                   ''
+    OnCreate                     ''
+    OnRepeat                     ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+LedDigits
+    Name                         Leddigits2
+    Alias                        Leddigits2
+    Color                        BLACK
+    Decimals                     0
+    Digits                       5
+    Height                       108
+    LeadingZero                  Yes
+    Left                         120
+    OutlineColor                 BLACK
+    Palette.High                 AQUA
+    Palette.Low                  BLACK
+    Top                          0
+    Width                        360
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+StaticText
+    Name                         Statictext2
+    Alias                        Statictext2
+    AutoSize                     Yes
+    Caption                      'Water Temp'
+    Color                        BLACK
+    Font.Color                   WHITE
+    Font.Effects                 []
+    Font.Name                    Tahoma
+    Font.Size                    9
+    Font.Style                   []
+    Height                       29
+    Left                         20
+    Top                          0
+    Transparent                  Yes
+    Width                        70
+    WordWrap                     Yes
+end
+LedDigits
+    Name                         Leddigits3
+    Alias                        Leddigits3
+    Color                        BLACK
+    Decimals                     0
+    Digits                       3
+    Height                       48
+    LeadingZero                  Yes
+    Left                         12
+    OutlineColor                 BLACK
+    Palette.High                 clLime
+    Palette.Low                  0x005100
+    Top                          24
+    Width                        96
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+LedDigits
+    Name                         Leddigits4
+    Alias                        Leddigits4
+    Color                        BLACK
+    Decimals                     0
+    Digits                       2
+    Height                       35
+    LeadingZero                  Yes
+    Left                         148
+    OutlineColor                 BLACK
+    Palette.High                 clLime
+    Palette.Low                  0x005100
+    Top                          224
+    Width                        63
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+LedDigits
+    Name                         Leddigits5
+    Alias                        Leddigits5
+    Color                        BLACK
+    Decimals                     0
+    Digits                       2
+    Height                       37
+    LeadingZero                  Yes
+    Left                         56
+    OutlineColor                 BLACK
+    Palette.High                 clLime
+    Palette.Low                  0x005100
+    Top                          224
+    Width                        53
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+LedDigits
+    Name                         Leddigits6
+    Alias                        Leddigits6
+    Color                        BLACK
+    Decimals                     0
+    Digits                       2
+    Height                       35
+    LeadingZero                  Yes
+    Left                         148
+    OutlineColor                 BLACK
+    Palette.High                 clLime
+    Palette.Low                  0x005100
+    Top                          164
+    Width                        62
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+LedDigits
+    Name                         Leddigits7
+    Alias                        Leddigits7
+    Color                        BLACK
+    Decimals                     0
+    Digits                       2
+    Height                       34
+    LeadingZero                  Yes
+    Left                         52
+    OutlineColor                 BLACK
+    Palette.High                 clLime
+    Palette.Low                  0x005100
+    Top                          164
+    Width                        57
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+Strings
+    Name                         Strings2
+    Alias                        Strings2
+    Alignment                    Left
+    BGcolor                      BLACK
+    Height                       56
+    FGcolor                      WHITE
+    Font.Bold                    No
+    Font.CharSet                 ANSI
+    Font.Italic                  No
+    Font.Name                    Arial
+    Font.Opaque                  Yes
+    Font.Size                    50
+    Font.Strikethrough           No
+    Font.Underline               No
+    Left                         304
+    Strings                      'ALL OK\n'
+    StringsStyle                 Message
+    Top                          216
+    Width                        174
+    OnChanged                    ''
+end
+Label
+    Name                         Label5
+    Alias                        Label5
+    4DGLFont.Font                FONT1
+    4DGLFont.Bold                No
+    4DGLFont.Italic              No
+    4DGLFont.Inverse             No
+    4DGLFont.Underline           No
+    4DGLFont.MagWidth            1
+    4DGLFont.MagHeight           1
+    4DGLFont.Opaque              Yes
+    BGcolor                      BLACK
+    Caption                      'Page 2'
+    FGcolor                      WHITE
+    Left                         368
+    Top                          160
+end
+Form
+    Name                         'Page 3'
+    Alias                        Page3
+    Bgtype                       Color
+    Color                        BLACK
+    Image                        (None)
+    Source.Height                0
+    Source.Left                  0
+    Source.Top                   0
+    Source.Width                 0
+    OnActivate                   ''
+    OnCreate                     ''
+    OnRepeat                     ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+LedDigits
+    Name                         rpm
+    Alias                        rpm
+    Color                        BLACK
+    Decimals                     0
+    Digits                       5
+    Height                       134
+    LeadingZero                  Yes
+    Left                         108
+    OutlineColor                 BLACK
+    Palette.High                 AQUA
+    Palette.Low                  BLACK
+    Top                          0
+    Width                        372
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+Strings
+    Name                         Strings3
+    Alias                        Strings3
+    Alignment                    Left
+    BGcolor                      BLACK
+    Height                       56
+    FGcolor                      WHITE
+    Font.Bold                    No
+    Font.CharSet                 ANSI
+    Font.Italic                  No
+    Font.Name                    Arial
+    Font.Opaque                  Yes
+    Font.Size                    50
+    Font.Strikethrough           No
+    Font.Underline               No
+    Left                         304
+    Strings                      'ALL OK\n'
+    StringsStyle                 Message
+    Top                          192
+    Width                        174
+    OnChanged                    ''
+end
+LedDigits
+    Name                         testdigits
+    Alias                        testdigits
+    Color                        BLACK
+    Decimals                     1
+    Digits                       4
+    Height                       44
+    LeadingZero                  Yes
+    Left                         64
+    OutlineColor                 BLACK
+    Palette.High                 clLime
+    Palette.Low                  0x005100
+    Top                          176
+    Width                        136
+    OnChanged                    ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+Label
+    Name                         Label6
+    Alias                        Label6
+    4DGLFont.Font                FONT1
+    4DGLFont.Bold                No
+    4DGLFont.Italic              No
+    4DGLFont.Inverse             No
+    4DGLFont.Underline           No
+    4DGLFont.MagWidth            1
+    4DGLFont.MagHeight           1
+    4DGLFont.Opaque              Yes
+    BGcolor                      BLACK
+    Caption                      'Page 3'
+    FGcolor                      WHITE
+    Left                         336
+    Top                          248
+end
+Form
+    Name                         Splash
+    Alias                        Splash
+    Bgtype                       Color
+    Color                        BLACK
+    Image                        (None)
+    Source.Height                0
+    Source.Left                  0
+    Source.Top                   0
+    Source.Width                 0
+    OnActivate                   ''
+    OnCreate                     ''
+    OnRepeat                     ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+Image
+    Name                         Image1
+    Alias                        Image1
+    Height                       272
+    Image                        'Photo 3-6-16, 5 07 17 PM.jpg'
+    Left                         140
+    Source.Height                1136
+    Source.Left                  0
+    Source.Top                   0
+    Source.Width                 640
+    Top                          0
+    Width                        206
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end

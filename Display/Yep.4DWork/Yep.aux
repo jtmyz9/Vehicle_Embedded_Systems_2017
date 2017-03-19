@@ -1,0 +1,155 @@
+==============================================================
+==============================================================
+4DGL Compiler 2.8.0.5 -- Copyright 2004-2015 4D Labs
+** E:\Dropbox\Car 23 2016-2017\Erect-wrongics\Code\Display\Yep.4Dg
+compiled Sat Dec 17 05:38:10 2016
+
+==============================================================
+==============================================================
+
+
+No Ref for file
+[LINKING]
+function 3, main, address 69
+(main entry point)
+stack usage 8 + 4
+function 'main' requires no arguments
+function 'main' has no return value
+
+[LINKING]
+function 1, ledDigitsDisplay, address 321
+stack usage 8 + 4
+function 'ledDigitsDisplay' requires 7 argument
+function 'ledDigitsDisplay' has no return value
+
+[RESERVED WORDS]
+#inherit
+#LISTCODE
+#MODE
+#STACK
+#OPTIMIZE_ON
+#OPTIMIZE_OFF
+byte
+word
+dword
+float
+private
+#IF
+#IFNOT
+#ELSE
+#ENDIF
+#CONST
+#constant
+#USE
+USING
+func
+endfunc
+var
+#STOP
+#DATA
+#ASM
+#END
+#platform
+EXISTS
+#ERROR
+#MESSAGE
+#NOTICE
+sizeof
+argcount
+if
+else
+endif
+while
+wend
+repeat
+until
+forever
+return
+break
+continue
+for
+next
+switch
+case
+default
+endswitch
+print
+goto
+gosub
+endsub
+mcall
+lookup8
+lookup16
+
+[MACRO]
+
+[CONSTANTS]
+__MAXMEM                          00008000      32768  (usage 1)
+__MAXPROG                         00007FEE      32750  (usage 1)
+DIABLO                            00000003          3  (usage 3)
+IMAGE_INDEX                       00000009          9  (usage 3)
+IMAGE_XPOS                        00000002          2  (usage 3)
+iRPM                              00000000          0  (usage 9)
+LANDSCAPE                         00000000          0  (usage 3)
+SCREEN_MODE                       00000017         23  (usage 3)
+
+[PmmC FUNCTIONS]
+com_Init                          FFFFFF18        -232  args=3 r=0  (usage 2)
+file_LoadImageControl             FFFFFE3D        -451  args=3 r=1  (usage 3)
+file_Mount                        FFFFFE3C        -452  args=0 r=1  (usage 6)
+file_Open                         FFFFFE52        -430  args=2 r=1  (usage 3)
+gfx_Cls                           FFFFFF82        -126  args=0 r=0  (usage 6)
+gfx_Set                           FFFFFF83        -125  args=2 r=0  (usage 3)
+img_SetWord                       FFFFFE85        -379  args=4 r=1  (usage 6)
+img_Show                          FFFFFE83        -381  args=2 r=1  (usage 6)
+pause                             FFFFFFFA          -6  args=1 r=0  (usage 6)
+putstr                            FFFFFFF7          -9  args=1 r=1  (usage 6)
+serin                             FFFFFF14        -236  args=0 r=1  (usage 9)
+setbaud                           FFFFFF20        -224  args=1 r=0  (usage 2)
+
+[USER FUNCTIONS]
+ledDigitsDisplay                  00000141  args=7 r=0  (usage 6)
+
+[GLOBAL VARIABLES]
+hndl                                   1  word       (usage 15)
+serBuffer                              2  word[50]   (usage 2)
+
+[PRIVATE VARIABLES]
+
+[DATA]
+0007: 4D 6F 75 6E 74 69 6E 67 2E 2E 2E 0A 00 44 72 69     Mounting.....Dri
+0017: 76 65 20 6E 6F 74 20 6D 6F 75 6E 74 65 64 2E 2E     ve not mounted..
+0027: 2E 00 59 65 70 2E 74 78 66 00 59 65 70 2E 64 61     ..Yep.txf.Yep.da
+0037: 74 00 59 65 70 2E 67 63 69 00 F7 00 3D 01           t.Yep.gci.÷.=.
+
+[__MAXPROG]
+32750
+[__MAXMEM]
+32768
+
+[PROGRAM]
+main
+[CODESIZE]
+518
+[MEMSIZE]
+51
+[ARGCOUNT]
+0
+[RETURNS]
+NO
+[STACKSIZE]
+0 (AUTO)
+[STACK_ESTIMATE]
+28   (nb:- worst case estimate)
+[MODE]
+0
+
+[PROJECT]
+E:\Dropbox\Car 23 2016-2017\Erect-wrongics\Code\Display\Yep.4Dg
+C:\Program Files (x86)\4D Labs\4D Workshop 4 IDE\include\Gen4-uLCD-43D.fnc
+C:\Program Files (x86)\4D Labs\4D Workshop 4 IDE\include\Diablo16_Functions.fnc
+C:\Program Files (x86)\4D Labs\4D Workshop 4 IDE\include\4DGL_16bitColours.fnc
+C:\Program Files (x86)\4D Labs\4D Workshop 4 IDE\include\VisualConst.inc
+E:\Dropbox\Car 23 2016-2017\Erect-wrongics\Code\Display\Yep.4DWork\YepConst.inc
+C:\Program Files (x86)\4D Labs\4D Workshop 4 IDE\include\ledDigitsDisplay.inc
+E:\Dropbox\Car 23 2016-2017\Erect-wrongics\Code\Display\AVRSerial.inc
