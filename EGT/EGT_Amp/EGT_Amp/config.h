@@ -23,10 +23,8 @@
 #define F_CPU          (FOSC*1000) // Need for AVR GCC
 
 //!ADC PORT Defs
-#define ADC_PORT_IN        PINF
-#define ADC_PORT_DIR       DDRF
-#define ADC_PORT_OUT      PORTF
 #define ADC_DID_REG       DIDR0
+#define ADC_DID_REG2	  DIDR1
 
 //---------------- CAN DEFINITION -------------
 #define     CAN_BAUDRATE        500
