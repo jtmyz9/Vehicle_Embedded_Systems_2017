@@ -15,6 +15,7 @@
 #include "can_lib.h"
 #include "adc_drv.h"
 #include "systimer.h"
+#include "car_23.h"
 #include <util/atomic.h>
 #include <util/delay.h>
 

@@ -1,5 +1,9 @@
 /*
  * EGT_Amp.c
+ * Board Includes 5 Thermocouple OpAmps
+ * Program cycles through 5 ADC channels attached to OpAmps
+ * Data is stored in global structure, and sent and determined rate to canbus
+ *
  *
  * Created: 3/7/2017 1:01:10 AM
  * Author : Jason McLoud
@@ -96,11 +100,17 @@ void sys_init(void) {
 	systimer_10ms = 0;
 	
 	//init message as tx
-	egt.id.std = 0x123;
+	egt.id.std = EGT_AMP;
 	egt.pt_data = &thermo_val[0];//point msg data pointer to data buffer
 	egt.cmd = CMD_TX;
 	egt.dlc = 8;
+#ifdef DEBUG
+	int i =0;
+	for(i; i< 8; i++){
+		thermo_val[i] = 0xA0;
+	}	
 	
+#endif
 	io_init();		//init i/o 
 	can_init(1);	//init can bus
 	
@@ -148,13 +158,13 @@ void handle_10ms_tick(void)
 	if(systimer_10ms %20 == 0)
 	{
 		// Send 50Hz Data
-		//led_ctrl(LED2,LED_ON,LED_NO_TMR);
+		
 	}
 
 	if(systimer_10ms % 50 == 0)
 	{
 		// Send 20Hz Data
-		//led_ctrl(LED3,LED_ON,LED_NO_TMR);
+		
 	}
 
 	if(systimer_10ms % 100 == 0)
@@ -167,15 +177,16 @@ void handle_10ms_tick(void)
 	if(systimer_10ms % 200 == 0)
 	{
 		// Send 5Hz Data
-		//led_ctrl(LED5,LED_ON,LED_NO_TMR);
+		
 	}
 	if(systimer_10ms % 500 == 0)
 	{
 		// Send 2Hz Data
-		//led_ctrl(LED6,LED_ON,LED_NO_TMR);
+		
 	}
 	if(systimer_10ms % 1000 == 0)
 	{	
+		//Send 1Hz Data
 		//send can message to MOb
 		while(can_cmd(&egt) != CAN_CMD_ACCEPTED);
 		while(can_get_status(&egt) == CAN_STATUS_NOT_COMPLETED);

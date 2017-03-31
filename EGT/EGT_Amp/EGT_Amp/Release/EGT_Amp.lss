@@ -1638,8 +1638,8 @@ Disassembly of section .text:
      ee0:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <_edata+0x1>
      ee4:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <_edata+0x2>
      ee8:	10 92 03 01 	sts	0x0103, r1	; 0x800103 <_edata+0x3>
-     eec:	83 e2       	ldi	r24, 0x23	; 35
-     eee:	91 e0       	ldi	r25, 0x01	; 1
+     eec:	80 e5       	ldi	r24, 0x50	; 80
+     eee:	97 e0       	ldi	r25, 0x07	; 7
      ef0:	90 93 13 01 	sts	0x0113, r25	; 0x800113 <egt+0x3>
      ef4:	80 93 12 01 	sts	0x0112, r24	; 0x800112 <egt+0x2>
      ef8:	84 e0       	ldi	r24, 0x04	; 4

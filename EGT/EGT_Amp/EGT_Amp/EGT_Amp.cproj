@@ -101,6 +101,7 @@
       <Value>../../../../lib_mcu/atmega64m1/adc</Value>
       <Value>..</Value>
       <Value>../../../../lib_mcu/systimer</Value>
+      <Value>../../../..</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
@@ -164,6 +165,10 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\..\car_23.h">
+      <SubType>compile</SubType>
+      <Link>car_23.h</Link>
+    </Compile>
     <Compile Include="..\..\..\lib_mcu\atmega64m1\adc\adc_drv.c">
       <SubType>compile</SubType>
       <Link>adc_drv.c</Link>
