@@ -26,20 +26,9 @@ typedef enum
 	PEDAL = 0x345600,
 	THROTTLE = 0x393300,
 	PDM	= 0x50,
-	EGT = 0x7
+	EGT_AMP = 0x750
 	} canbus_id;
 
-/*
-EGT Extended ID
-*/
-typedef enum 
-{
-	CHANNEL_1 = 1,
-	CHANNEL_2,
-	CHANNEL_3,
-	CHANNEL_4,
-	CHANNEL_5
-} egt_extended_id;
 /*
 * i2c address assigned to devices in vehicle
 * MLX90614, IMU(gyro, accel)

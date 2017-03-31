@@ -4,7 +4,7 @@
 
 ..\..\..\lib_mcu\can\atmega64m1\can_drv.c
 
-..\..\..\lib_mcu\can\can_lib.c
+..\..\..\lib_mcu\can\atmega64m1\can_lib.c
 
 main.c
 
