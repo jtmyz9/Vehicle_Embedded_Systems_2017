@@ -26,11 +26,11 @@ int main(void)
 
 		adc_init(AVCC_AS_VREF, NO_LEFT_ADJUST, OPAMP_1);
 		ADC_result = adc_single_conversion(OPAMP_1);
-		//convert ADC result to mv
-		ADC_result *= 5000;
+		//convert ADC result to v
+		ADC_result *= 1000;
 		ADC_result /= 1023;
 		ATOMIC_BLOCK(ATOMIC_RESTORESTATE){
-				thermo_val[0] = ADC_result / Celsius;
+				thermo_val[0] = ADC_result;
 				
 			}
 		_delay_ms(1);
@@ -177,6 +177,9 @@ void handle_10ms_tick(void)
 	if(systimer_10ms % 200 == 0)
 	{
 		// Send 5Hz Data
+		while(can_cmd(&egt) != CAN_CMD_ACCEPTED);
+		while(can_get_status(&egt) == CAN_STATUS_NOT_COMPLETED);
+		PORTC ^= (1<<1);
 		
 	}
 	if(systimer_10ms % 500 == 0)
@@ -188,8 +191,8 @@ void handle_10ms_tick(void)
 	{	
 		//Send 1Hz Data
 		//send can message to MOb
-		while(can_cmd(&egt) != CAN_CMD_ACCEPTED);
-		while(can_get_status(&egt) == CAN_STATUS_NOT_COMPLETED);
-		PORTC ^= (1<<1);
+		//while(can_cmd(&egt) != CAN_CMD_ACCEPTED);
+		//while(can_get_status(&egt) == CAN_STATUS_NOT_COMPLETED);
+		//PORTC ^= (1<<1);
 	}
 }

@@ -27,7 +27,7 @@
 #define ADC_DID_REG2	  DIDR1
 
 //---------------- CAN DEFINITION -------------
-#define     CAN_BAUDRATE        500
+#define     CAN_BAUDRATE        1000
 
 
 
